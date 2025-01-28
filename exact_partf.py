@@ -85,10 +85,15 @@ def main(args):
     P = t1 + t2
     P[I_mtr == 3] = 0.5
 
+    pstr = None
+
     if args.exact:
-        print(str(exact_partf(P, cells, mutation, df)))
+        pstr = str(exact_partf(P, cells, mutation, df))
     else:
-        print(str(our_partf(P, cells, mutation, df)))
+        pstr = str(our_partf(P, cells, mutation, df))
+
+    output = [args.path, pstr, args.exact]
+    print("\t".join(output))
 
 
 if __name__ == "__main__":
